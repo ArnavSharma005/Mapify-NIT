@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="directions.css">
+
+    <title>NIT miniMap Directions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="shortcut icon" href="../marker.ico" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Leaflet Routing Machine CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Leaflet Routing Machine JS -->
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+</head>
+
+<body>
+
+    <div class='StudentCompo'>
+        <div class="mapcontainer">
+            <div id="map"></div>
+        </div>
+        <div class="menu-bar">
+            <a href="../student.html">
+                <h1 class="logo">mapify<span>NIT</span></h1>
+            </a>
+            <i class='bx bx-menu' id="menu"></i>
+            <ul id="navbarid">
+                <li><a href="../student.html">Explore</a>
+                </li>
+                <li><a href="../timetable/timetable.html">Time-Table</a></li>
+                <li><a href="#">Go-to <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-menu" style="z-index: 1;">
+                        <ul id="loclist">
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="useridblock">
+                <div class="userdetails">
+                    <div id="username"></div>
+                    <div id="userrollno"></div>
+                    <div id="logout">Logout</div>
+                </div>
+                <img src="../PFPW.png" alt="ProfilePicture">
+            </div>
+        </div>
+    </div>
+
+    <script src="directions.js"></script>
+    <script>
+        let navb = document.querySelector('#menu');
+        let navbar = document.querySelector('#navbarid');
+
+        navb.onclick = () => {
+            navb.classList.toggle('bx-x');
+            navbar.classList.toggle('active');
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Teacher</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="teacher.css">
+    <link rel="shortcut icon" href="marker.ico" type="image/x-icon">
+    <!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+    <div class='StudentCompo'>
+        <div class="mapcontainer">
+            <div id="map"></div>
+        </div>
+        <div class="menu-bar">
+            <a href="./teacher.html">
+                <h1 class="logo">mapify<span>NIT</span></h1>
+            </a>
+            <i class='bx bx-menu' id="menu"></i>
+
+            <ul id="navbarid">
+                <li><a href="./teacher.html">Explore</a>
+                </li>
+                <li><a href="./timetable/timetable.html">Time-Table<i class="fas fa-time"></i></a></li>
+                <li><a class="button" href="#divOne">Alter Classes<i class="fas fa-edit"></i></a></li>
+
+                <li><a href="#">Go-to <i class="fas fa-caret-down"></i></a>
+
+                    <div class="dropdown-menu" style="z-index: 1;">
+                        <ul id="loclist">
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+            <div class="useridblock">
+                <div class="userdetails">
+                    <div id="username"></div>
+                    <div id="logout">Logout</div>
+                </div>
+                <img src="./PFPW.png" alt="ProfilePicture">
+            </div>
+        </div>
+        <div class="overlay" id="divOne">
+            <div class="addm">
+                <h1 style="color: white;text-align:center;font-size:56px;margin-bottom:10px ">Add Class</h1>
+                <div style="display: flex; justify-content: center;">
+                    <select id="branch_select" style="
+                        background-color: #f9f9f9;
+                        width: 24%;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                          padding: 15px 12px;
+                          margin-right: 5px;
+                      ">
+                        <option value="">Branch</option>
+                        <option value="CS">CS</option>
+                        <option value="IT">IT</option>
+                        <option value="EE">EE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="MEC">MEC</option>
+                        <option value="PIE">PIE</option>
+                        <option value="CE">CE</option>
+                    </select>
+
+                    <select id="sub_select" style="
+                        background-color: #f9f9f9;
+                        width: 24%;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                        padding: 12px 12x;
+                        margin-left: 5px;
+                    ">
+                        <option style="font-weight: bold;" value="">Sub-Section</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <label style="color: white;font-size:30px;margin-right: 10px;"> Date & Time: </label>
+                <br>
+                <input type="datetime-local"
+                    style="width:44%;height:50px; margin-left: 30%; font-size: 2em;display: flex; justify-content: center;"
+                    class="date">
+                <br>
+                <br>
+                <label style="color: white;font-size:30px">Location:</label>
+                <select id="loc_select" style="
+                        margin-left: 27%;
+                        background-color: #f9f9f9;
+                        width:50%;
+                        height:50px;
+                        font-size:15px;
+                        font-weight: bold;
+                    ">
+                    <option value="">Location</option>
+                    <option value="LHC-101">LHC-101</option>
+                    <option value="LHC-102">LHC-102</option>
+                    <option value="LHC-103">LHC-103</option>
+                    <option value="LHC-104">LHC-104</option>
+                    <option value="LHC-105">LHC-105</option>
+                    <option value="LHC-201">LHC-201</option>
+                    <option value="LHC-202">LHC-202</option>
+                    <option value="LHC-203">LHC-203</option>
+                    <option value="LHC-204">LHC-204</option>
+                    <option value="LHC-205">LHC-205</option>
+                    <option value="E-101">E-101</option>
+                    <option value="E-102">E-102</option>
+                    <option value="E-201">E-201</option>
+                    <option value="E-202">E-202</option>
+                    <option value="L-1">L-1</option>
+                    <option value="L-2">L-2</option>
+                    <option value="L-3">L-3</option>
+                    <option value="L-4">L-4</option>
+                    <option value="L-5">L-5</option>
+                    <option value="L-6">L-6</option>
+                    <option value="Lab-1">Lab-1</option>
+                    <option value="Lab-2">Lab-2</option>
+                    <option value="Lab-3">Lab-3</option>
+                    <option value="Lab-4">Lab-4</option>
+                    <option value="Lab-5">Lab-5</option>
+                    <option value="Lab-6">Lab-6</option>
+                    <option value="Lab-7">Lab-7</option>
+                    <option value="Lab-8">Lab-8</option>
+                    <option value="Lab-9">Lab-9</option>
+                    <option value="Lab-10">Lab-10</option>
+                    <option value="Lab-11">Lab-11</option>
+                    <option value="Lab-12">Lab-12</option>
+                </select>
+                <br>
+                <button style="margin-left: 43.5%; font-weight: bold;" id="addbtn">Add Class</button>
+            </div>
+        </div>
+        <script src="teacher.js"></script>
+        <script>
+            let navb = document.querySelector('#menu');
+            let navbar = document.querySelector('#navbarid');
+
+            navb.onclick = () => {
+                navb.classList.toggle('bx-x');
+                navbar.classList.toggle('active');
+            };
+        </script>
+</body>
+
+</html>
